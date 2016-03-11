@@ -21,3 +21,5 @@ piwik:
     PIWIK_MYSQL_PASSWORD: "put_the_same_random_here"
     PIWIK_RELATIVE_URL_ROOT: "/"
   restart: always
+  volumes:
+    - /docker/piwik/nginx/conf.d/:/etc/nginx/conf.d
