@@ -25,8 +25,6 @@ RUN apt-get update &&  apt-get install -y \
     sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php5/fpm/php.ini && \
     sed -i 's/;always_populate_raw_post_data/always_populate_raw_post_data/g' /etc/php5/fpm/php.ini
 
-COPY nginx-piwik.conf /etc/nginx/conf.d/nginx-piwik.conf
-COPY basic.conf /etc/nginx/conf.d/basic.conf
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod a+x /opt/entrypoint.sh
 
