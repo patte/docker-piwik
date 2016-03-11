@@ -1,16 +1,14 @@
-data:
-  image:  busybox
 mysql:
   image: mysql
-  volumes_from:
-    - data
+  volumes:
+    - /docker/piwik/mysql:/var/lib/mysql
   environment:
-    MYSQL_ROOT_PASSWORD: "2exndYCLD8SLUUs6h68TYwASNRhAPWB"
+    MYSQL_ROOT_PASSWORD: "put_something_random_here"
     MYSQL_DATABASE: "piwik"
     MYSQL_USER: "piwik"
-    MYSQL_PASSWORD: "vdZggFUwSZcKcq9fFczH7AsjAfgF59r"
+    MYSQL_PASSWORD: "put_something_random_here"
   restart: always
-app:
+piwik:
   image: juev/piwik
   links:
     - mysql
@@ -20,6 +18,6 @@ app:
     - "80:80"
   environment:
     PIWIK_MYSQL_USER: "piwik"
-    PIWIK_MYSQL_PASSWORD: "vdZggFUwSZcKcq9fFczH7AsjAfgF59r"
+    PIWIK_MYSQL_PASSWORD: "put_the_same_random_here"
     PIWIK_RELATIVE_URL_ROOT: "/"
   restart: always
